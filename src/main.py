@@ -1,5 +1,6 @@
 import ev3dev.ev3 as ev3
-from Planet import Direction, Planet
+from planet import Direction, Planet
+from communication import CommClient
 
 def run():
     # the execution of all code shall be started from within this function

@@ -24,9 +24,7 @@ import zipfile
 import shutil
 import os
 
-# get the full executable path, because windows can't handle our shebang
-PYTHON_EXECUTABLE = sys.executable
-# it's basically a one-liner \o/
+print(os.getcwd())
 try:
     with open("./robolab-deploy/deploy.py") as f:
         pass
@@ -34,8 +32,13 @@ except FileNotFoundError:
     urllib.urlretrieve("https://github.com/7hal32/robolab-deploy/archive/master.zip", "master.zip")
     with zipfile.ZipFile("master.zip", "r") as zip_ref:
         zip_ref.extractall()
-    os.rmdir("robolab-deploy")
+    try:
+        shutil.rmtree('robolab-deploy')
+    except FileNotFoundError:
+        pass
     os.remove("master.zip")
     shutil.move("robolab-deploy-master", "robolab-deploy")
+
+PYTHON_EXECUTABLE = sys.executable
 subprocess.call([PYTHON_EXECUTABLE,
                 './robolab-deploy/deploy.py'] + sys.argv[1:])
