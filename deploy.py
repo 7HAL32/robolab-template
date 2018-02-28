@@ -19,9 +19,26 @@ Copyright (c) 2017 Lutz Thies
 
 import sys
 import subprocess
+import urllib.request as urllib
+import zipfile
+import shutil
+import os
 
-# get the full executable path, because windows can't handle our shebang
+print(os.getcwd())
+try:
+    with open("./robolab-deploy/deploy.py") as f:
+        pass
+except FileNotFoundError:
+    urllib.urlretrieve("https://github.com/7hal32/robolab-deploy/archive/master.zip", "master.zip")
+    with zipfile.ZipFile("master.zip", "r") as zip_ref:
+        zip_ref.extractall()
+    try:
+        shutil.rmtree('robolab-deploy')
+    except FileNotFoundError:
+        pass
+    os.remove("master.zip")
+    shutil.move("robolab-deploy-master", "robolab-deploy")
+
 PYTHON_EXECUTABLE = sys.executable
-# it's basically a one-liner \o/
 subprocess.call([PYTHON_EXECUTABLE,
                 './robolab-deploy/deploy.py'] + sys.argv[1:])
