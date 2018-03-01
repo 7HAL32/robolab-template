@@ -7,7 +7,7 @@ import paho.mqtt.client as mqtt
 class Communication:
 
     def __init__(self, planet, mqtt_client):
-        """ Initialize communication module, connect to server, subscribe, etc. """
+        """ Initializes communication module, connect to server, subscribe, etc. """
         self.client = mqtt_client
         self.client.on_message = self.on_message
 
