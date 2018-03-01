@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import ev3dev.ev3 as ev3
 from planet import Direction, Planet
 from communication import CommClient

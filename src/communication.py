@@ -1,25 +1,20 @@
-from typing import Tuple
-from planet import Direction
+#!/usr/bin/env python3
 
-class CommClient:
+import paho.mqtt.client as mqtt
+# Suggestion: Do not import ev3dev.ev3 module in this file
+
+
+class Communication:
 
     def __init__(self, planet, mqtt_client):
-        self.planet = planet
+        """ Initialize communication module, connect to server, subscribe, etc. """
         self.client = mqtt_client
-        self.client.on_message = self.__on_message
+        self.client.on_message = self.on_message
 
-    def __on_message(self, client, data, message):
-        """ In this method you will define how to react to incoming messages """
+    def on_message(self, client, data, message):
+        """ Handles the callback if any message arrived """
         pass
 
-    def send(self, message: str):
-        """ Send messages to the mqtt-server """
-        pass
-
-    def parse_path(self, message: str) -> Tuple[Tuple[int, int, Direction], Tuple[int, int, Direction]]:
-        """ Parse a message to a path """
-        pass
-
-    def parse_target(self, message: str) -> Tuple[int, int]:
-        """ Parse a recieved message to a target node """
+    def send_message(self, channel, message):
+        """ Sends given message to specified channel """
         pass
