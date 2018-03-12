@@ -44,21 +44,13 @@ These steps should be only performed by **one** member of your group.
   git remote -v
   ```
 
-5. Rename the default branch you're currently on to `master`.
-
-  ```
-  git branch -m <current_branch> master
-  ```
-
-  Make sure to enter the correct current branch. This will be the one shown at the GitHub website or in the Git status report which can be brought up via `git status`. For instance it will be `spring-17` for the RoboLab course in Spring 2017.
-
-6. Perform an initial push.
+5. Perform an initial push.
 
   ```
   git push origin master
   ```
 
-7. Now the other members of your team are ready to clone your group repository. Make sure to enter the corresponding URL from step (3) and also use the `--recursive` flag.
+6. Now the other members of your team are ready to clone your group repository. Make sure to enter the corresponding URL from step (3) and also use the `--recursive` flag.
 
  ```
   git clone --recursive https://bitbucket.org/robolab-<season>-<year>/group-<id>
@@ -139,6 +131,7 @@ Contributors to robolab-template:
 
 - [Frank Busse](https://github.com/251) (interface)
 - Lutz Thies (description and deploy stub)
+- Max Friedrich, Ian List, Kilian Koeltzsch and Sinthujan Thanabalasingam 
 
 Contributors to [robolab-deploy](ttps://github.com/7HAL32/robolab-deploy) (submodule):
 
@@ -152,6 +145,8 @@ Contributors to [robolab-deploy](ttps://github.com/7HAL32/robolab-deploy) (submo
   - [Paul Genssler](https://github.com/krabo0om) (systemd restart, debugging and testing for windows, emotional support)
   - Lutz Thies (rewrite and redesign, i.e. systemd, tmux, reloader)
 
-Part of the RoboLab project.<br>
-Released under the [MIT License](/LICENSE).<br>
-Copyright © 2017 Lutz Thies
+Part of the RoboLab project  
+Systems Engineering Group, Faculty of Computer Science, TU Dresden  
+Copyright (c) 2017-2018 by Lutz Thies  
+
+Released under the [MIT License](/LICENSE)
